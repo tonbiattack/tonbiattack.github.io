@@ -19,7 +19,7 @@ const PROJECTS = [
     description:
       "ワークフローを扱うタスク管理REST API。Go、Gin、GORM、MySQLによる境界の明確なバックエンド設計を継続的に検証しています。",
     stack: ["Go", "Gin", "GORM", "MySQL"],
-    image: "/manus-storage/tonbi-work-api-architecture_0b5b5a28.png",
+    image: "/assets/tonbi-work-api-architecture.png",
     href: "",
     note: "source / private",
   },
@@ -30,7 +30,7 @@ const PROJECTS = [
     description:
       "Webページのリンクとボタンを、キーボードの矢印キーで辿れるようにするChrome拡張機能。ブラウジングの操作境界を小さくしました。",
     stack: ["JavaScript", "Chrome Extension", "MV3"],
-    image: "/manus-storage/tonbi-work-debugging_e9604acd.png",
+    image: "/assets/tonbi-work-debugging.png",
     href: "https://github.com/tonbiattack/arrow-button-mapper",
     note: "source / public",
   },
@@ -41,7 +41,7 @@ const PROJECTS = [
     description:
       "失敗を観測し、原因を切り分け、最小修正を回帰テストで固定する。再現可能な小規模デバッグ教材を複数の言語・フレームワークで作っています。",
     stack: ["Java", "Spring", "TypeScript", "Rust"],
-    image: "/manus-storage/tonbi-hero-field-notes_2c3e2fb5.png",
+    image: "/assets/tonbi-hero-field-notes.png",
     href: "https://github.com/tonbiattack",
     note: "collection / public",
   },
@@ -85,7 +85,7 @@ export default function Home() {
       <header className="site-header">
         <a className="wordmark" href="#top" aria-label="Tonbiattack トップへ">
           <img
-            src="/manus-storage/tonbi-mark_3064029f.png"
+            src="/assets/tonbi-mark.png"
             alt=""
             className="brand-mark"
           />
@@ -137,7 +137,7 @@ export default function Home() {
 
           <figure className="hero-figure">
             <img
-              src="/manus-storage/tonbi-hero-field-notes_2c3e2fb5.png"
+              src="/assets/tonbi-hero-field-notes.png"
               alt="技術的なフィールドノートと設計メモを描いた抽象ビジュアル"
             />
             <figcaption>
