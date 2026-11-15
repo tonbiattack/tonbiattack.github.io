@@ -7,14 +7,18 @@
 
 ## 収録内容
 
-| セクション       | 内容                                                                 |
-| ---------------- | -------------------------------------------------------------------- |
-| サイト           | AI Plan Radar、Free Model Radar、Type Rush、UI Rush、Local Memo Diff |
-| by Tests         | Go / Python / Java / TypeScript の実行可能ドキュメント教材           |
-| アプリ・拡張機能 | Instant Mic、Pictobi、Arrow Button Mapper                            |
-| 書いたもの       | Zenn、Qiita、GitHub のリポジトリ                                     |
+| セクション      | 内容                                                                 |
+| --------------- | -------------------------------------------------------------------- |
+| サイト          | AI Plan Radar、Free Model Radar、Type Rush、UI Rush、Local Memo Diff |
+| by Tests        | Go / Python / Java / TypeScript の実行可能ドキュメント教材           |
+| Android アプリ  | Instant Mic、Pictobi（APK・Windows 版のダウンロード付き）            |
+| Chrome 拡張機能 | Arrow Button Mapper、Regex Tab Keeper、Web State Inspector           |
+| 書いたもの      | Zenn、Qiita、GitHub のリポジトリ                                     |
 
 掲載するのは公開済みの成果物だけです。リンク先の稼働は公開時点で確認しています。
+
+APK は GitHub Releases の配信 URL を直接指定しています（`Home.tsx` の `APPS[].downloads`）。
+バージョンを上げたら、この URL と `note` のサイズ表記を更新してください。
 
 ## 構成
 
@@ -25,6 +29,7 @@ client/
     mark.png        ヘッダーのロゴ（透過 PNG）
     favicon.png     ファビコン
     404.html        GitHub Pages 用の 404 ページ
+    apps/           アプリ・拡張機能のアイコンとスクリーンショット
   src/
     main.tsx        エントリポイント
     App.tsx         エラーバウンダリとリンク一覧の組み立て
@@ -58,19 +63,32 @@ CSS だけで組んでいます。`main` へのプッシュと Pull Request で�
 ## リンクの追加・修正
 
 掲載内容は `client/src/pages/Home.tsx` の配列だけで管理しています。サイトを追加するときは
-`SITES`、アプリや拡張機能は `APPS` に 1 件追加してください。`by Tests` と `書いたもの` は
-`BY_TESTS` とリンク行に直接書いています。
+`SITES`、Android アプリは `APPS`、Chrome 拡張機能は `EXTENSIONS` に 1 件追加してください。
+`by Tests` と `書いたもの` は `BY_TESTS` と `WRITING` に直接書いています。
 
 ```ts
+// SITES / EXTENSIONS の要素
 {
   name: "表示名",
   href: "https://example.com/",
-  meta: "補足（ドメインや対応プラットフォーム）",
+  meta: "補足（ドメインや公開先）",
   description: "何ができるものかを 1〜2 文で。",
+}
+
+// APPS の要素（アイコンとスクリーンショットは client/public/apps/ に置く）
+{
+  name: "表示名",
+  href: "https://github.com/...",
+  icon: "/apps/name-icon.png",
+  platform: "Android",
+  description: "何ができるものかを 1〜2 文で。",
+  screenshots: [{ src: "/apps/name.jpg", alt: "画面の説明" }],
+  downloads: [{ label: "APK をダウンロード", href: "...", note: "v1.0.0・4MB" }],
 }
 ```
 
 外部リンクはすべて新しいタブで開き、`rel="noreferrer"` を付けています。
+画像は長辺 320〜420px の JPEG / PNG に縮小し、`loading="lazy"` を付けています。
 
 ## 公開
 
