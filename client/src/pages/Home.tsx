@@ -1,266 +1,214 @@
 /**
- * Evidence Atelier: an editorial portfolio that treats engineering work as evidence.
- * Palette: archive paper, ink, Signal Teal, and a restrained vermilion annotation.
+ * Index of published services. One column, hairline rules, links only.
  */
-import {
-  ArrowDownRight,
-  ArrowUpRight,
-  Braces,
-  ExternalLink,
-  Github,
-  MoveRight,
-} from "lucide-react";
 
-const PROJECTS = [
+type Entry = {
+  name: string;
+  href: string;
+  meta: string;
+  description: string;
+};
+
+const SITES: Entry[] = [
   {
-    number: "W-01",
-    title: "Task Management API",
-    type: "Private implementation",
+    name: "AI Plan Radar",
+    href: "https://tonbiattack.github.io/ai-plan-radar/",
+    meta: "tonbiattack.github.io/ai-plan-radar",
     description:
-      "ワークフローを扱うタスク管理REST API。Go、Gin、GORM、MySQLによる境界の明確なバックエンド設計を継続的に検証しています。",
-    stack: ["Go", "Gin", "GORM", "MySQL"],
-    image: "/assets/tonbi-work-api-architecture.png",
-    href: "",
-    note: "source / private",
+      "AIコーディングサービスの料金・対応モデル・利用枠を、公式の出典と確認日つきで比較できるサイトです。",
   },
   {
-    number: "W-02",
-    title: "Arrow Button Mapper",
-    type: "Chrome extension",
+    name: "Free Model Radar",
+    href: "https://tonbiattack.github.io/free-model-radar/",
+    meta: "tonbiattack.github.io/free-model-radar",
     description:
-      "Webページのリンクとボタンを、キーボードの矢印キーで辿れるようにするChrome拡張機能。ブラウジングの操作境界を小さくしました。",
-    stack: ["JavaScript", "Chrome Extension", "MV3"],
-    image: "/assets/tonbi-work-debugging.png",
-    href: "https://github.com/tonbiattack/arrow-button-mapper",
-    note: "source / public",
+      "無料枠のあるLLM APIを、レート制限・ツール呼び出しの対応・実機での検証状態で比較できるサイトです。",
   },
   {
-    number: "W-03",
-    title: "Debugging Labs",
-    type: "Learning repositories",
+    name: "Type Rush",
+    href: "https://tonbiattack.github.io/type-rush/",
+    meta: "tonbiattack.github.io/type-rush",
     description:
-      "失敗を観測し、原因を切り分け、最小修正を回帰テストで固定する。再現可能な小規模デバッグ教材を複数の言語・フレームワークで作っています。",
-    stack: ["Java", "Spring", "TypeScript", "Rust"],
-    image: "/assets/tonbi-hero-field-notes.png",
-    href: "https://github.com/tonbiattack",
-    note: "collection / public",
+      "ひらがなの短文を5問入力し、クリアまでの時間を計るタイピングゲームです。記録はブラウザに保存されます。",
+  },
+  {
+    name: "UI Rush",
+    href: "https://tonbiattack.github.io/ui-rush/",
+    meta: "tonbiattack.github.io/ui-rush",
+    description:
+      "操作できるデモを見て、UIコンポーネントの名前を4択で答えるクイズです。用語50語とキーボード操作10問を収録しています。",
+  },
+  {
+    name: "Local Memo Diff",
+    href: "https://tonbiattack.github.io/local-memo-diff/",
+    meta: "tonbiattack.github.io/local-memo-diff",
+    description:
+      "ブラウザだけで動く、localStorage保存のメモと行単位Diffツールです。入力内容は外部に送信されません。",
   },
 ];
 
-const NOTE_ITEMS = [
+const BY_TESTS = [
+  { label: "Go", href: "https://tonbiattack.github.io/go-by-tests/" },
+  { label: "Python", href: "https://tonbiattack.github.io/python-by-tests/" },
+  { label: "Java", href: "https://tonbiattack.github.io/java-by-tests/" },
+  { label: "TypeScript", href: "https://tonbiattack.github.io/typescript-by-tests/" },
+];
+
+const APPS: Entry[] = [
   {
-    number: "N-01",
-    title: "Failure-first debugging",
-    copy: "再現、観測、仮説、最小修正、回帰確認を一連の記録として残す。",
+    name: "Instant Mic",
+    href: "https://github.com/tonbiattack/instant-mic/releases",
+    meta: "Windows・Android 版",
+    description:
+      "Androidスマホを、同じLANにつないだWindows PCの音声入力キーボードにするアプリです。音声とテキストは外部に送信しません。",
   },
   {
-    number: "N-02",
-    title: "Backend boundaries",
-    copy: "API、ORM、トランザクション、非同期処理の境界条件を小さな検証に分解する。",
+    name: "Pictobi",
+    href: "https://github.com/tonbiattack/fastest-picture-viewer",
+    meta: "Android 版",
+    description:
+      "大量の画像をフォルダ単位で素早く閲覧するAndroid向けの画像ビューアです。",
   },
   {
-    number: "N-03",
-    title: "Technical writing",
-    copy: "実装の結論だけでなく、判断に使った証拠と前提を読める形に編集する。",
+    name: "Arrow Button Mapper",
+    href: "https://chromewebstore.google.com/detail/ejnlggdofblmjagoeijifpjggmgjcibj",
+    meta: "Chrome 拡張機能",
+    description:
+      "Webページのリンクやボタンを、キーボードの左右キーで辿れるようにするChrome拡張機能です。",
   },
 ];
 
-function CornerMark() {
+const WRITING = [
+  { label: "Zenn", href: "https://zenn.dev/tonbi_attack" },
+  { label: "Qiita", href: "https://qiita.com/tonbi_attack" },
+  {
+    label: "GitHub のリポジトリ",
+    href: "https://github.com/tonbiattack?tab=repositories",
+  },
+];
+
+function Arrow() {
   return (
-    <svg className="corner-mark" viewBox="0 0 88 88" aria-hidden="true">
-      <path d="M8 45H45V8" fill="none" stroke="currentColor" strokeWidth="2" />
-      <path d="M58 80V43H80" fill="none" stroke="currentColor" strokeWidth="2" />
-      <circle cx="52" cy="36" r="4" fill="currentColor" />
+    <svg
+      className="entry-arrow"
+      width="15"
+      height="15"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      aria-hidden="true"
+    >
+      <path d="M7 17 17 7M8 7h9v9" />
     </svg>
+  );
+}
+
+function EntryList({ entries }: { entries: Entry[] }) {
+  return (
+    <ul className="entry-list">
+      {entries.map((entry) => (
+        <li key={entry.name}>
+          <a className="entry" href={entry.href} target="_blank" rel="noreferrer">
+            <span className="entry-text">
+              <span className="entry-name">
+                {entry.name}
+                <Arrow />
+              </span>
+              <span className="entry-meta">{entry.meta}</span>
+              <span className="entry-desc">{entry.description}</span>
+            </span>
+          </a>
+        </li>
+      ))}
+    </ul>
   );
 }
 
 export default function Home() {
   return (
-    <div className="site-shell">
+    <div className="page">
       <a className="skip-link" href="#main-content">
         本文へ移動
       </a>
 
       <header className="site-header">
-        <a className="wordmark" href="#top" aria-label="Tonbiattack トップへ">
-          <img
-            src="/assets/tonbi-mark.png"
-            alt=""
-            className="brand-mark"
-          />
-          <span>Tonbiattack</span>
-        </a>
-
-        <nav className="top-nav" aria-label="ページ内ナビゲーション">
-          <a href="#works">Works</a>
-          <a href="#notes">Notes</a>
-          <a href="#contact">Contact</a>
-        </nav>
-
-        <a className="header-github" href="https://github.com/tonbiattack" target="_blank" rel="noreferrer">
-          <Github aria-hidden="true" size={16} />
-          <span>GitHub</span>
-          <ArrowUpRight aria-hidden="true" size={14} />
+        <h1 className="wordmark">
+          <img src="/mark.png" alt="" width={26} height={26} />
+          Tonbiattack
+        </h1>
+        <a
+          className="header-link"
+          href="https://github.com/tonbiattack"
+          target="_blank"
+          rel="noreferrer"
+        >
+          GitHub
+          <Arrow />
         </a>
       </header>
 
       <main id="main-content">
-        <section className="hero" id="top" aria-labelledby="hero-title">
-          <aside className="hero-index" aria-label="このページの構成">
-            <span className="index-label">INDEX</span>
-            <span>01 / Evidence</span>
-            <span>02 / Works</span>
-            <span>03 / Notes</span>
-          </aside>
+        <p className="lead">
+          自分で作って公開しているサイトとアプリの一覧です。ソースコードはGitHubに置いています。
+        </p>
 
-          <div className="hero-copy">
-            <p className="eyebrow"><span /> ENGINEERING FIELD NOTES — 2026</p>
-            <h1 id="hero-title">
-              実装を、<br />
-              <em>再現可能な</em><br />
-              知見に変える。
-            </h1>
-            <p className="hero-summary">
-              Tonbiattackの開発ポートフォリオです。バックエンド設計、デバッグ教材、
-              日々の検証記録を通して、なぜその実装を選んだのかまで公開します。
-            </p>
-            <div className="hero-actions">
-              <a className="action-primary" href="#works">
-                制作物を読む <MoveRight aria-hidden="true" size={18} />
-              </a>
-              <a className="action-quiet" href="#notes">
-                記録について <ArrowDownRight aria-hidden="true" size={18} />
-              </a>
-            </div>
-          </div>
-
-          <figure className="hero-figure">
-            <img
-              src="/assets/tonbi-hero-field-notes.png"
-              alt="技術的なフィールドノートと設計メモを描いた抽象ビジュアル"
-            />
-            <figcaption>
-              <span>FIELD NOTE / 001</span>
-              <span>OBSERVE → VERIFY → SHARE</span>
-            </figcaption>
-            <div className="hero-stamp">VERIFIED<br />IN PUBLIC</div>
-            <CornerMark />
-          </figure>
-
-          <div className="hero-footnote">
-            <span className="footnote-rule" />
-            <p>設計の決定を、結果だけで終わらせない。</p>
-          </div>
+        <section aria-labelledby="sites-title">
+          <h2 id="sites-title">サイト</h2>
+          <EntryList entries={SITES} />
         </section>
 
-        <section className="profile-band" aria-label="ポートフォリオについて">
-          <p className="section-code">00 / PROFILE</p>
-          <div>
-            <p className="profile-lead">
-              <strong>Goを中心に、</strong>APIとデータの境界を丁寧に設計します。小さな失敗を
-              テストに閉じ込め、次の実装に使える記録へ変換することを大切にしています。
-            </p>
-            <div className="profile-meta">
-              <span>Focus / Backend systems</span>
-              <span>Practice / Failure-first debugging</span>
-              <span>Base / Japan</span>
-            </div>
-          </div>
-        </section>
-
-        <section className="works-section" id="works" aria-labelledby="works-title">
-          <div className="section-heading">
-            <div>
-              <p className="section-code">01 / SELECTED WORK</p>
-              <h2 id="works-title">作ったもの、<br />検証したこと。</h2>
-            </div>
-            <p className="section-intro">公開できる範囲で、用途・技術・設計の焦点を短く記録しています。</p>
-          </div>
-
-          <div className="work-list">
-            {PROJECTS.map((project) => (
-              <article className="work-card" key={project.number}>
-                <div className="work-number">{project.number}</div>
-                <div className="work-image-wrap">
-                  <img src={project.image} alt="" className="work-image" />
-                  <span className="image-type">{project.type}</span>
-                </div>
-                <div className="work-copy">
-                  <p className="work-type">{project.type}</p>
-                  <h3>{project.title}</h3>
-                  <p>{project.description}</p>
-                  <div className="work-bottom">
-                    <ul className="stack-list" aria-label={`${project.title} の技術`}> 
-                      {project.stack.map((item) => <li key={item}>{item}</li>)}
-                    </ul>
-                    {project.href ? (
-                      <a className="source-link" href={project.href} target="_blank" rel="noreferrer">
-                        {project.note} <ExternalLink aria-hidden="true" size={15} />
-                      </a>
-                    ) : (
-                      <span className="source-link source-private">{project.note}</span>
-                    )}
-                  </div>
-                </div>
-              </article>
+        <section aria-labelledby="tests-title">
+          <h2 id="tests-title">by Tests</h2>
+          <p className="section-desc">
+            言語仕様や標準ライブラリの落とし穴を、実行できるテストと並べて読む教材です。テストはリポジトリでそのまま実行できます。
+          </p>
+          <ul className="link-row">
+            {BY_TESTS.map((item) => (
+              <li key={item.label}>
+                <a href={item.href} target="_blank" rel="noreferrer">
+                  {item.label}
+                  <Arrow />
+                </a>
+              </li>
             ))}
-          </div>
-
-          <a className="all-work-link" href="https://github.com/tonbiattack?tab=repositories" target="_blank" rel="noreferrer">
-            すべてのリポジトリを見る <ArrowUpRight aria-hidden="true" size={20} />
-          </a>
+          </ul>
         </section>
 
-        <section className="notes-section" id="notes" aria-labelledby="notes-title">
-          <div className="notes-visual" aria-hidden="true">
-            <span>LOG</span><span>TRACE</span><span>FIX</span><span>TEST</span>
-          </div>
-          <div className="notes-content">
-            <p className="section-code">02 / TECHNICAL NOTES</p>
-            <h2 id="notes-title">失敗から読む、<br />実装の輪郭。</h2>
-            <p className="notes-intro">
-              技術記事と学習用リポジトリでは、エラーを再現し、観測可能な事実から原因を狭める過程を残しています。
-            </p>
-            <div className="notes-list">
-              {NOTE_ITEMS.map((note) => (
-                <div className="note-row" key={note.number}>
-                  <span>{note.number}</span>
-                  <div>
-                    <h3>{note.title}</h3>
-                    <p>{note.copy}</p>
-                  </div>
-                </div>
-              ))}
-            </div>
-            <a className="notes-link" href="https://github.com/tonbiattack" target="_blank" rel="noreferrer">
-              公開中のノートと教材を見る <ArrowUpRight aria-hidden="true" size={18} />
-            </a>
-          </div>
+        <section aria-labelledby="apps-title">
+          <h2 id="apps-title">アプリ・拡張機能</h2>
+          <EntryList entries={APPS} />
         </section>
 
-        <section className="contact-section" id="contact" aria-labelledby="contact-title">
-          <p className="section-code">03 / CONTACT</p>
-          <div className="contact-grid">
-            <h2 id="contact-title">気になる記録が<br /><em>あれば、辿ってください。</em></h2>
-            <div className="contact-links">
-              <a href="https://github.com/tonbiattack" target="_blank" rel="noreferrer">
-                <Github aria-hidden="true" size={19} />
-                <span>GitHub profile</span><ArrowUpRight aria-hidden="true" size={18} />
-              </a>
-              <a href="https://github.com/tonbiattack?tab=repositories" target="_blank" rel="noreferrer">
-                <Braces aria-hidden="true" size={19} />
-                <span>Public repositories</span><ArrowUpRight aria-hidden="true" size={18} />
-              </a>
-              <p>連絡先は準備中です。GitHubプロフィールから公開中のプロジェクトをご覧ください。</p>
-            </div>
-          </div>
+        <section aria-labelledby="writing-title">
+          <h2 id="writing-title">書いたもの</h2>
+          <ul className="link-row">
+            {WRITING.map((item) => (
+              <li key={item.label}>
+                <a href={item.href} target="_blank" rel="noreferrer">
+                  {item.label}
+                  <Arrow />
+                </a>
+              </li>
+            ))}
+          </ul>
         </section>
       </main>
 
       <footer className="site-footer">
-        <div><Braces aria-hidden="true" size={16} /> <span>TONBIATTACK / FIELD NOTES</span></div>
-        <span>© 2026</span>
+        <span>© 2026 Daichi Toyooka</span>
+        <span>
+          ソースコードは{" "}
+          <a
+            href="https://github.com/tonbiattack/tonbiattack.github.io"
+            target="_blank"
+            rel="noreferrer"
+          >
+            MIT ライセンス
+          </a>
+        </span>
       </footer>
     </div>
   );
