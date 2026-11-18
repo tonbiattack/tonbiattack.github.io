@@ -55,27 +55,6 @@ const SITES: Entry[] = [
       "絞り込み前後のテーブルを見て、どのWHEREでそうなったかを4択で当てるSQL認識ゲームです。1問5秒、60秒のタイムアタックで遊べます。",
   },
   {
-    name: "Query Balatro",
-    href: "https://tonbiattack.github.io/query-balatro/",
-    meta: "tonbiattack.github.io/query-balatro",
-    description:
-      "断片カードを並べてクエリを組み、チップ×マルチでスコアを伸ばすスコアアタックです。アンティ8のBossを抜ければクリアです。",
-  },
-  {
-    name: "SQL探偵：ログの死角",
-    href: "https://tonbiattack.github.io/sql-detective/",
-    meta: "tonbiattack.github.io/sql-detective",
-    description:
-      "ランダム生成されたログDBから証拠をたどり、犯人を1人告発する推理ゲームです。証拠を開くほど候補は絞られますが、使うほど得点は下がります。",
-  },
-  {
-    name: "Wand Playground",
-    href: "https://tonbiattack.github.io/wand-playground/",
-    meta: "tonbiattack.github.io/wand-playground",
-    description:
-      "杖を組み替えて試射するブラウザ向けのサンドボックスです。非公式のファン制作で、現在も開発中の試作です。",
-  },
-  {
     name: "Local Memo Diff",
     href: "https://tonbiattack.github.io/local-memo-diff/",
     meta: "tonbiattack.github.io/local-memo-diff",
@@ -249,30 +228,6 @@ const EXTENSIONS: Extension[] = [
     description:
       "Webページのリンクやボタンを、キーボードの左右キーで辿れるようにするChrome拡張機能です。サイトごとに操作対象を登録できます。",
     screenshot: "/apps/arrow-button-mapper.jpg",
-  },
-  {
-    name: "Regex Tab Keeper",
-    href: "https://github.com/tonbiattack/regex-tab-keeper",
-    icon: "/apps/regex-tab-keeper-icon.png",
-    meta: "GitHub（ストア未公開）",
-    description:
-      "URLの正規表現に一致するタブだけを残し、それ以外をすべてのウィンドウからまとめて閉じる拡張機能です。実行前に残す・閉じるタブを確認できます。",
-  },
-  {
-    name: "Web State Inspector",
-    href: "https://github.com/tonbiattack/web-state-inspector",
-    icon: "/apps/web-state-inspector-icon.png",
-    meta: "GitHub（ストア未公開）",
-    description:
-      "Chrome DevToolsに追加する、操作・通信・例外を時系列で集めるローカル専用のデバッグ拡張機能です。収集した内容をAI向けのMarkdownに整形できます。",
-  },
-  {
-    name: "YGO Simulator Animation Speed",
-    href: "https://github.com/tonbiattack/ygo-simulator-animation-speed-controller",
-    icon: "/apps/ygo-animation-speed-icon.png",
-    meta: "GitHub（ストア未公開）",
-    description:
-      "JunkBlade SimulatorとDogmaBlade SimulatorのCanvas内アニメーションを、1倍から16倍まで高速化する拡張機能です。動画の再生速度では変えられない演出を短縮できます。",
   },
 ];
 
