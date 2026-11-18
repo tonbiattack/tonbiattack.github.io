@@ -41,6 +41,41 @@ const SITES: Entry[] = [
       "操作できるデモを見て、UIコンポーネントの名前を4択で答えるクイズです。用語50語とキーボード操作10問を収録しています。",
   },
   {
+    name: "Type Duel",
+    href: "https://tonbiattack.github.io/type-duel/",
+    meta: "tonbiattack.github.io/type-duel",
+    description:
+      "TypeScriptの型を読んで、代入できるか一瞬で見抜く短時間パズルゲームです。Duel・Infer・Detectiveの3モード、全147問をコンパイラで検証しています。",
+  },
+  {
+    name: "Query Rush",
+    href: "https://tonbiattack.github.io/query-rush/",
+    meta: "tonbiattack.github.io/query-rush",
+    description:
+      "絞り込み前後のテーブルを見て、どのWHEREでそうなったかを4択で当てるSQL認識ゲームです。1問5秒、60秒のタイムアタックで遊べます。",
+  },
+  {
+    name: "Query Balatro",
+    href: "https://tonbiattack.github.io/query-balatro/",
+    meta: "tonbiattack.github.io/query-balatro",
+    description:
+      "断片カードを並べてクエリを組み、チップ×マルチでスコアを伸ばすスコアアタックです。アンティ8のBossを抜ければクリアです。",
+  },
+  {
+    name: "SQL探偵：ログの死角",
+    href: "https://tonbiattack.github.io/sql-detective/",
+    meta: "tonbiattack.github.io/sql-detective",
+    description:
+      "ランダム生成されたログDBから証拠をたどり、犯人を1人告発する推理ゲームです。証拠を開くほど候補は絞られますが、使うほど得点は下がります。",
+  },
+  {
+    name: "Wand Playground",
+    href: "https://tonbiattack.github.io/wand-playground/",
+    meta: "tonbiattack.github.io/wand-playground",
+    description:
+      "杖を組み替えて試射するブラウザ向けのサンドボックスです。非公式のファン制作で、現在も開発中の試作です。",
+  },
+  {
     name: "Local Memo Diff",
     href: "https://tonbiattack.github.io/local-memo-diff/",
     meta: "tonbiattack.github.io/local-memo-diff",
@@ -59,7 +94,7 @@ const BY_TESTS = [
 type App = {
   name: string;
   href: string;
-  icon: string;
+  icon?: string;
   platform: string;
   description: string;
   screenshots: { src: string; alt: string }[];
@@ -83,13 +118,13 @@ const APPS: App[] = [
     downloads: [
       {
         label: "APK をダウンロード",
-        href: "https://github.com/tonbiattack/instant-mic/releases/download/v0.3.0/instant-mic-android.apk",
-        note: "v0.3.0・23MB",
+        href: "https://github.com/tonbiattack/instant-mic/releases/download/v0.4.1/instant-mic-android.apk",
+        note: "v0.4.1・23MB",
       },
       {
         label: "Windows 版",
-        href: "https://github.com/tonbiattack/instant-mic/releases/download/v0.3.0/instant-mic-windows-amd64.zip",
-        note: "v0.3.0・3.5MB",
+        href: "https://github.com/tonbiattack/instant-mic/releases/download/v0.4.1/instant-mic-windows-amd64.zip",
+        note: "v0.4.1・3.6MB",
       },
       {
         label: "リリース一覧",
@@ -124,6 +159,72 @@ const APPS: App[] = [
       {
         label: "リリース一覧",
         href: "https://github.com/tonbiattack/fastest-picture-viewer/releases",
+        note: "過去のバージョン",
+      },
+    ],
+  },
+  {
+    name: "Device Warden",
+    href: "https://github.com/tonbiattack/device-warden",
+    icon: "/apps/device-warden-icon.png",
+    platform: "Windows",
+    description:
+      "Android端末を人間と複数のAIエージェントで取り合わないよう調整する、タスクトレイ常駐のリース管理ツールです。誰がどの端末を確保しているかを一覧で判断できます。",
+    screenshots: [
+      {
+        src: "/apps/device-warden.jpg",
+        alt: "端末・ADB接続状態・利用可否・確保者が並ぶDevice Wardenの一覧画面",
+      },
+    ],
+    downloads: [
+      {
+        label: "EXE をダウンロード",
+        href: "https://github.com/tonbiattack/device-warden/releases/download/v0.1.0/DeviceWarden.exe",
+        note: "v0.1.0・23MB",
+      },
+      {
+        label: "リリース一覧",
+        href: "https://github.com/tonbiattack/device-warden/releases",
+        note: "SHA256SUMS もこちら",
+      },
+    ],
+  },
+  {
+    name: "Archive Extract Cleaner",
+    href: "https://github.com/tonbiattack/archive-extract-cleaner",
+    platform: "Windows",
+    description:
+      "ZIPと解凍済みフォルダをSHA-256まで照合し、内容が完全一致したフォルダだけをごみ箱への移動候補にするデスクトップアプリです。迷う要素があれば両方を残します。",
+    screenshots: [],
+    downloads: [
+      {
+        label: "EXE をダウンロード",
+        href: "https://github.com/tonbiattack/archive-extract-cleaner/releases/download/v0.1.0/archive-extract-cleaner.exe",
+        note: "v0.1.0・12MB",
+      },
+      {
+        label: "リリース一覧",
+        href: "https://github.com/tonbiattack/archive-extract-cleaner/releases",
+        note: "過去のバージョン",
+      },
+    ],
+  },
+  {
+    name: "Game Audio Manager",
+    href: "https://github.com/tonbiattack/game-audio-manager",
+    platform: "Windows",
+    description:
+      "アプリ・ゲームごとに音声の出力先とミュートを切り替えるPowerShellツールです。GUIから選ぶ方法と、コマンドで指定する方法の両方を用意しています。",
+    screenshots: [],
+    downloads: [
+      {
+        label: "ZIP をダウンロード",
+        href: "https://github.com/tonbiattack/game-audio-manager/releases/download/v1.0.0/game-audio-manager-v1.0.0.zip",
+        note: "v1.0.0・123KB",
+      },
+      {
+        label: "リリース一覧",
+        href: "https://github.com/tonbiattack/game-audio-manager/releases",
         note: "過去のバージョン",
       },
     ],
@@ -164,6 +265,14 @@ const EXTENSIONS: Extension[] = [
     meta: "GitHub（ストア未公開）",
     description:
       "Chrome DevToolsに追加する、操作・通信・例外を時系列で集めるローカル専用のデバッグ拡張機能です。収集した内容をAI向けのMarkdownに整形できます。",
+  },
+  {
+    name: "YGO Simulator Animation Speed",
+    href: "https://github.com/tonbiattack/ygo-simulator-animation-speed-controller",
+    icon: "/apps/ygo-animation-speed-icon.png",
+    meta: "GitHub（ストア未公開）",
+    description:
+      "JunkBlade SimulatorとDogmaBlade SimulatorのCanvas内アニメーションを、1倍から16倍まで高速化する拡張機能です。動画の再生速度では変えられない演出を短縮できます。",
   },
 ];
 
@@ -241,7 +350,7 @@ export default function Home() {
 
       <main id="main-content">
         <p className="lead">
-          自分で作って公開しているサイトとアプリの一覧です。APKはここから直接ダウンロードできます。
+          自分で作って公開しているサイトとアプリの一覧です。アプリはここから直接ダウンロードできます。
         </p>
 
         <section aria-labelledby="sites-title">
@@ -267,18 +376,20 @@ export default function Home() {
         </section>
 
         <section aria-labelledby="apps-title">
-          <h2 id="apps-title">Android アプリ</h2>
+          <h2 id="apps-title">アプリ</h2>
           <ul className="app-list">
             {APPS.map((app) => (
               <li className="app" key={app.name}>
                 <div className="app-head">
-                  <img
-                    className="app-icon"
-                    src={app.icon}
-                    alt=""
-                    width={28}
-                    height={28}
-                  />
+                  {app.icon ? (
+                    <img
+                      className="app-icon"
+                      src={app.icon}
+                      alt=""
+                      width={28}
+                      height={28}
+                    />
+                  ) : null}
                   <h3 className="app-name">
                     <a href={app.href} target="_blank" rel="noreferrer">
                       {app.name}
@@ -288,23 +399,25 @@ export default function Home() {
                   <span className="app-platform">{app.platform}</span>
                 </div>
                 <p className="app-desc">{app.description}</p>
-                <div className="app-shots">
-                  {app.screenshots.map((shot) => (
-                    <img
-                      key={shot.src}
-                      className="app-shot"
-                      src={shot.src}
-                      alt={shot.alt}
-                      loading="lazy"
-                    />
-                  ))}
-                </div>
+                {app.screenshots.length > 0 ? (
+                  <div className="app-shots">
+                    {app.screenshots.map((shot) => (
+                      <img
+                        key={shot.src}
+                        className="app-shot"
+                        src={shot.src}
+                        alt={shot.alt}
+                        loading="lazy"
+                      />
+                    ))}
+                  </div>
+                ) : null}
                 <ul className="download-row">
                   {app.downloads.map((dl) => (
                     <li key={dl.href}>
                       <a
                         className={
-                          dl.label.startsWith("APK") ? "download-main" : "download"
+                          dl.label.includes("ダウンロード") ? "download-main" : "download"
                         }
                         href={dl.href}
                         target="_blank"
