@@ -7,15 +7,17 @@
 
 ## 収録内容
 
-| セクション      | 内容                                                                                                                                 |
-| --------------- | ------------------------------------------------------------------------------------------------------------------------------------ |
-| サイト          | AI Plan Radar、Free Model Radar、Type Rush、UI Rush、Type Duel、Query Rush、Query Balatro、SQL探偵、Wand Playground、Local Memo Diff |
-| by Tests        | Go / Python / Java / TypeScript の実行可能ドキュメント教材                                                                           |
-| アプリ          | Instant Mic、Pictobi、Device Warden、Archive Extract Cleaner、Game Audio Manager（ダウンロード付き）                                 |
-| Chrome 拡張機能 | Arrow Button Mapper、Regex Tab Keeper、Web State Inspector、YGO Simulator Animation Speed                                            |
-| 書いたもの      | Zenn、Qiita、GitHub のリポジトリ                                                                                                     |
+| セクション      | 内容                                                                                                 |
+| --------------- | ---------------------------------------------------------------------------------------------------- |
+| サイト          | AI Plan Radar、Free Model Radar、Type Rush、UI Rush、Type Duel、Query Rush、Local Memo Diff          |
+| by Tests        | Go / Python / Java / TypeScript の実行可能ドキュメント教材                                           |
+| アプリ          | Instant Mic、Pictobi、Device Warden、Archive Extract Cleaner、Game Audio Manager（ダウンロード付き） |
+| Chrome 拡張機能 | Arrow Button Mapper                                                                                  |
+| 書いたもの      | Zenn、Qiita、GitHub のリポジトリ                                                                     |
 
 掲載するのは公開済みの成果物だけです。リンク先の稼働は公開時点で確認しています。
+ただし、自分で見て「これは微妙だ」と判断したものは、公開済みでも載せません。
+一覧は網羅ではなく、人に見せたいものだけを選んでいます。
 
 配布物は GitHub Releases の URL を直接指定しています（`Home.tsx` の `APPS[].downloads`）。
 バージョンを上げたら、この URL と `note` のサイズ表記を更新してください。
