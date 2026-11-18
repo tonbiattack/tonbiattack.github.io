@@ -7,17 +7,17 @@
 
 ## 収録内容
 
-| セクション      | 内容                                                                 |
-| --------------- | -------------------------------------------------------------------- |
-| サイト          | AI Plan Radar、Free Model Radar、Type Rush、UI Rush、Local Memo Diff |
-| by Tests        | Go / Python / Java / TypeScript の実行可能ドキュメント教材           |
-| Android アプリ  | Instant Mic、Pictobi（APK・Windows 版のダウンロード付き）            |
-| Chrome 拡張機能 | Arrow Button Mapper、Regex Tab Keeper、Web State Inspector           |
-| 書いたもの      | Zenn、Qiita、GitHub のリポジトリ                                     |
+| セクション      | 内容                                                                                                                                 |
+| --------------- | ------------------------------------------------------------------------------------------------------------------------------------ |
+| サイト          | AI Plan Radar、Free Model Radar、Type Rush、UI Rush、Type Duel、Query Rush、Query Balatro、SQL探偵、Wand Playground、Local Memo Diff |
+| by Tests        | Go / Python / Java / TypeScript の実行可能ドキュメント教材                                                                           |
+| アプリ          | Instant Mic、Pictobi、Device Warden、Archive Extract Cleaner、Game Audio Manager（ダウンロード付き）                                 |
+| Chrome 拡張機能 | Arrow Button Mapper、Regex Tab Keeper、Web State Inspector、YGO Simulator Animation Speed                                            |
+| 書いたもの      | Zenn、Qiita、GitHub のリポジトリ                                                                                                     |
 
 掲載するのは公開済みの成果物だけです。リンク先の稼働は公開時点で確認しています。
 
-APK は GitHub Releases の配信 URL を直接指定しています（`Home.tsx` の `APPS[].downloads`）。
+配布物は GitHub Releases の URL を直接指定しています（`Home.tsx` の `APPS[].downloads`）。
 バージョンを上げたら、この URL と `note` のサイズ表記を更新してください。
 
 ## 構成
@@ -63,7 +63,7 @@ CSS だけで組んでいます。`main` へのプッシュと Pull Request で�
 ## リンクの追加・修正
 
 掲載内容は `client/src/pages/Home.tsx` の配列だけで管理しています。サイトを追加するときは
-`SITES`、Android アプリは `APPS`、Chrome 拡張機能は `EXTENSIONS` に 1 件追加してください。
+`SITES`、アプリは `APPS`、Chrome 拡張機能は `EXTENSIONS` に 1 件追加してください。
 `by Tests` と `書いたもの` は `BY_TESTS` と `WRITING` に直接書いています。
 
 ```ts
@@ -79,10 +79,10 @@ CSS だけで組んでいます。`main` へのプッシュと Pull Request で�
 {
   name: "表示名",
   href: "https://github.com/...",
-  icon: "/apps/name-icon.png",
+  icon: "/apps/name-icon.png", // 省略可
   platform: "Android",
   description: "何ができるものかを 1〜2 文で。",
-  screenshots: [{ src: "/apps/name.jpg", alt: "画面の説明" }],
+  screenshots: [{ src: "/apps/name.jpg", alt: "画面の説明" }], // 空配列なら非表示
   downloads: [{ label: "APK をダウンロード", href: "...", note: "v1.0.0・4MB" }],
 }
 ```
