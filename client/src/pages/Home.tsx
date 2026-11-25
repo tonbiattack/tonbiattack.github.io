@@ -97,13 +97,13 @@ const APPS: App[] = [
     downloads: [
       {
         label: "APK をダウンロード",
-        href: "https://github.com/tonbiattack/instant-mic/releases/download/v0.4.1/instant-mic-android.apk",
-        note: "v0.4.1・23MB",
+        href: "https://github.com/tonbiattack/instant-mic/releases/download/v0.5.0/instant-mic-android.apk",
+        note: "v0.5.0・22MB",
       },
       {
         label: "Windows 版",
-        href: "https://github.com/tonbiattack/instant-mic/releases/download/v0.4.1/instant-mic-windows-amd64.zip",
-        note: "v0.4.1・3.6MB",
+        href: "https://github.com/tonbiattack/instant-mic/releases/download/v0.5.0/instant-mic-windows-amd64.zip",
+        note: "v0.5.0・3.4MB",
       },
       {
         label: "リリース一覧",
@@ -132,8 +132,8 @@ const APPS: App[] = [
     downloads: [
       {
         label: "APK をダウンロード",
-        href: "https://github.com/tonbiattack/fastest-picture-viewer/releases/download/v0.2.0/Pictobi-0.2.0.apk",
-        note: "v0.2.0・3.7MB",
+        href: "https://github.com/tonbiattack/fastest-picture-viewer/releases/download/v0.4.0/Pictobi-0.4.0.apk",
+        note: "v0.4.0・4.3MB",
       },
       {
         label: "リリース一覧",
@@ -158,8 +158,8 @@ const APPS: App[] = [
     downloads: [
       {
         label: "EXE をダウンロード",
-        href: "https://github.com/tonbiattack/device-warden/releases/download/v0.1.0/DeviceWarden.exe",
-        note: "v0.1.0・23MB",
+        href: "https://github.com/tonbiattack/device-warden/releases/download/v0.2.0/DeviceWarden.exe",
+        note: "v0.2.0・22MB",
       },
       {
         label: "リリース一覧",
@@ -169,12 +169,18 @@ const APPS: App[] = [
     ],
   },
   {
-    name: "Archive Extract Cleaner",
+    name: "ZipSweep",
     href: "https://github.com/tonbiattack/archive-extract-cleaner",
+    icon: "/apps/zipsweep-icon.png",
     platform: "Windows",
     description:
-      "ZIPと解凍済みフォルダをSHA-256まで照合し、内容が完全一致したフォルダだけをごみ箱への移動候補にするデスクトップアプリです。迷う要素があれば両方を残します。",
-    screenshots: [],
+      "ZIP・7z・RARと解凍済みフォルダをSHA-256まで照合し、内容が完全一致したフォルダだけをごみ箱への移動候補にするデスクトップアプリです。迷う要素があれば両方を残します。",
+    screenshots: [
+      {
+        src: "/apps/zipsweep.jpg",
+        alt: "判定・名前・アーカイブ・解凍済みフォルダ・サイズが並ぶZipSweepのスキャン結果",
+      },
+    ],
     downloads: [
       {
         label: "EXE をダウンロード",
@@ -184,6 +190,53 @@ const APPS: App[] = [
       {
         label: "リリース一覧",
         href: "https://github.com/tonbiattack/archive-extract-cleaner/releases",
+        note: "過去のバージョン",
+      },
+    ],
+  },
+  {
+    name: "ZipScope",
+    href: "https://github.com/tonbiattack/zip-scope",
+    icon: "/apps/zip-scope-icon.png",
+    platform: "Windows",
+    description:
+      "ZIP・CBZを解凍せずに、展開済みフォルダと同じ感覚で画像を閲覧するビューアです。中央ディレクトリだけを読み、必要な画像だけをストリーム展開します。",
+    screenshots: [
+      {
+        src: "/apps/zip-scope.jpg",
+        alt: "ZIP内の画像を1枚表示し、上部にページ送りと倍率が並ぶZipScopeのビューア画面",
+      },
+    ],
+    downloads: [
+      {
+        label: "ZIP をダウンロード",
+        href: "https://github.com/tonbiattack/zip-scope/releases/download/v0.1.0/ZipScope-0.1.0-windows-amd64.zip",
+        note: "v0.1.0・6.7MB",
+      },
+      {
+        label: "リリース一覧",
+        href: "https://github.com/tonbiattack/zip-scope/releases",
+        note: "過去のバージョン",
+      },
+    ],
+  },
+  {
+    name: "Soundcore Switch",
+    href: "https://github.com/tonbiattack/soundcore-switch",
+    icon: "/apps/soundcore-switch-icon.png",
+    platform: "Android・Windows",
+    description:
+      "Soundcoreイヤホンのマルチポイント接続先を、純正アプリを開かずに確認・切り替えるアプリです。機種固有のRFCOMMプロトコルを実機で解読して実装しています。",
+    screenshots: [],
+    downloads: [
+      {
+        label: "APK をダウンロード",
+        href: "https://github.com/tonbiattack/soundcore-switch/releases/download/v0.1.1/app-debug.apk",
+        note: "v0.1.1・12MB",
+      },
+      {
+        label: "リリース一覧",
+        href: "https://github.com/tonbiattack/soundcore-switch/releases",
         note: "過去のバージョン",
       },
     ],
@@ -228,6 +281,15 @@ const EXTENSIONS: Extension[] = [
     description:
       "Webページのリンクやボタンを、キーボードの左右キーで辿れるようにするChrome拡張機能です。サイトごとに操作対象を登録できます。",
     screenshot: "/apps/arrow-button-mapper.jpg",
+  },
+  {
+    name: "GitHub Bulk Cloner",
+    href: "https://chromewebstore.google.com/detail/gnahjocpcgihifhdgoabhednldpcdpgg",
+    icon: "/apps/github-bulk-cloner-icon.png",
+    meta: "Chrome ウェブストア",
+    description:
+      "GitHubのリポジトリ一覧で欲しいものにチェックを付けると、その場でWindowsの指定フォルダへgit cloneする拡張機能です。Go製のネイティブホストで動作します。",
+    screenshot: "/apps/github-bulk-cloner.jpg",
   },
 ];
 
