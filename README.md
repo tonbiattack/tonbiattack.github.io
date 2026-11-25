@@ -22,6 +22,9 @@
 配布物は GitHub Releases の URL を直接指定しています（`Home.tsx` の `APPS[].downloads`）。
 バージョンを上げたら、この URL と `note` のサイズ表記を更新してください。
 
+Microsoft Store で公開しているアプリは、Store のリンクを `downloads` の先頭に置き
+`primary: true` を付けます。GitHub Releases からの配布も併記し、どちらからでも入手できるようにします。
+
 ## 構成
 
 ```
@@ -85,9 +88,15 @@ CSS だけで組んでいます。`main` へのプッシュと Pull Request で�
   platform: "Android",
   description: "何ができるものかを 1〜2 文で。",
   screenshots: [{ src: "/apps/name.jpg", alt: "画面の説明" }], // 空配列なら非表示
-  downloads: [{ label: "APK をダウンロード", href: "...", note: "v1.0.0・4MB" }],
+  downloads: [
+    { label: "Microsoft Store で入手", href: "...", note: "自動更新", primary: true },
+    { label: "APK をダウンロード", href: "...", note: "v1.0.0・4MB" },
+  ],
 }
 ```
+
+`downloads` のうち `primary: true` を付けた 1 件だけが塗りつぶしのボタンになります。
+入手経路が複数あるときは、いちばん勧めたいものを先頭に置いて `primary` を付けます。
 
 外部リンクはすべて新しいタブで開き、`rel="noreferrer"` を付けています。
 画像は長辺 320〜420px の JPEG / PNG に縮小し、`loading="lazy"` を付けています。

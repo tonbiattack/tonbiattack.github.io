@@ -70,6 +70,14 @@ const BY_TESTS = [
   { label: "TypeScript", href: "https://tonbiattack.github.io/typescript-by-tests/" },
 ];
 
+type Download = {
+  label: string;
+  href: string;
+  note: string;
+  /** 主要な入手経路。塗りつぶしのボタンで表示する。 */
+  primary?: boolean;
+};
+
 type App = {
   name: string;
   href: string;
@@ -77,7 +85,7 @@ type App = {
   platform: string;
   description: string;
   screenshots: { src: string; alt: string }[];
-  downloads: { label: string; href: string; note: string }[];
+  downloads: Download[];
 };
 
 const APPS: App[] = [
@@ -99,6 +107,7 @@ const APPS: App[] = [
         label: "APK をダウンロード",
         href: "https://github.com/tonbiattack/instant-mic/releases/download/v0.5.0/instant-mic-android.apk",
         note: "v0.5.0・22MB",
+        primary: true,
       },
       {
         label: "Windows 版",
@@ -134,6 +143,7 @@ const APPS: App[] = [
         label: "APK をダウンロード",
         href: "https://github.com/tonbiattack/fastest-picture-viewer/releases/download/v0.4.0/Pictobi-0.4.0.apk",
         note: "v0.4.0・4.3MB",
+        primary: true,
       },
       {
         label: "リリース一覧",
@@ -160,6 +170,7 @@ const APPS: App[] = [
         label: "EXE をダウンロード",
         href: "https://github.com/tonbiattack/device-warden/releases/download/v0.2.0/DeviceWarden.exe",
         note: "v0.2.0・22MB",
+        primary: true,
       },
       {
         label: "リリース一覧",
@@ -172,7 +183,7 @@ const APPS: App[] = [
     name: "ZipSweep",
     href: "https://github.com/tonbiattack/archive-extract-cleaner",
     icon: "/apps/zipsweep-icon.png",
-    platform: "Windows",
+    platform: "Windows・Microsoft Store",
     description:
       "ZIP・7z・RARと解凍済みフォルダをSHA-256まで照合し、内容が完全一致したフォルダだけをごみ箱への移動候補にするデスクトップアプリです。迷う要素があれば両方を残します。",
     screenshots: [
@@ -182,6 +193,12 @@ const APPS: App[] = [
       },
     ],
     downloads: [
+      {
+        label: "Microsoft Store で入手",
+        href: "https://apps.microsoft.com/detail/9P1CF06QFZG6",
+        note: "自動更新",
+        primary: true,
+      },
       {
         label: "EXE をダウンロード",
         href: "https://github.com/tonbiattack/archive-extract-cleaner/releases/download/v0.1.0/archive-extract-cleaner.exe",
@@ -198,7 +215,7 @@ const APPS: App[] = [
     name: "ZipScope",
     href: "https://github.com/tonbiattack/zip-scope",
     icon: "/apps/zip-scope-icon.png",
-    platform: "Windows",
+    platform: "Windows・Microsoft Store",
     description:
       "ZIP・CBZを解凍せずに、展開済みフォルダと同じ感覚で画像を閲覧するビューアです。中央ディレクトリだけを読み、必要な画像だけをストリーム展開します。",
     screenshots: [
@@ -208,6 +225,12 @@ const APPS: App[] = [
       },
     ],
     downloads: [
+      {
+        label: "Microsoft Store で入手",
+        href: "https://apps.microsoft.com/detail/9PKL9QQXB65R",
+        note: "自動更新",
+        primary: true,
+      },
       {
         label: "ZIP をダウンロード",
         href: "https://github.com/tonbiattack/zip-scope/releases/download/v0.1.0/ZipScope-0.1.0-windows-amd64.zip",
@@ -233,6 +256,7 @@ const APPS: App[] = [
         label: "APK をダウンロード",
         href: "https://github.com/tonbiattack/soundcore-switch/releases/download/v0.1.1/app-debug.apk",
         note: "v0.1.1・12MB",
+        primary: true,
       },
       {
         label: "リリース一覧",
@@ -253,6 +277,7 @@ const APPS: App[] = [
         label: "ZIP をダウンロード",
         href: "https://github.com/tonbiattack/game-audio-manager/releases/download/v1.0.0/game-audio-manager-v1.0.0.zip",
         note: "v1.0.0・123KB",
+        primary: true,
       },
       {
         label: "リリース一覧",
@@ -433,9 +458,7 @@ export default function Home() {
                   {app.downloads.map((dl) => (
                     <li key={dl.href}>
                       <a
-                        className={
-                          dl.label.includes("ダウンロード") ? "download-main" : "download"
-                        }
+                        className={dl.primary ? "download-main" : "download"}
                         href={dl.href}
                         target="_blank"
                         rel="noreferrer"
